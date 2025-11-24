@@ -1,16 +1,54 @@
-# news_app
+# Flutter News Aggregator App
 
-A new Flutter project.
+A simple cross-platform news application built with **Flutter**, **GetX**, and **NewsAPI**.  
+Users can browse category-wise news, read full articles, and save items for offline access.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+##  Architecture Overview
 
-A few resources to get you started if this is your first Flutter project:
+The project follows a **feature-oriented architecture** with clean separation between:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### **1. Presentation Layer**
+- Screens (Home, Detail, Saved, Preferences)
+- UI widgets
+- SliverAppBar & responsive layout components
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### **2. Controller Layer (GetX)**
+- `NewsController` → fetches category news
+- `SavedController` → manages saved articles
+- Uses reactive variables (`Rx`) for UI updates
+- Dependency injection via `Get.put()` and `Get.find()`
+
+### **3. Data Layer**
+- `NewsService` → API calls (NewsAPI Everything endpoint)
+- `LocalStorage` → persistent storage (GetStorage)
+- `Article` model → unified JSON mapping for API + saved data
+
+This structure keeps:
+- UI clean and stateless
+- Logic centralized
+- Code easy to extend (pagination, dark mode, etc.)
+
+---
+
+## Design Decisions
+
+### ** GetX for State Management**
+Chosen for:
+- Lightweight syntax (`obs`, `Obx`)
+- Built-in routing + dependency injection
+- Minimal boilerplate compared to Provider/Bloc
+
+### **✔ GetStorage for Offline Saving**
+- Simple key-value storage
+- Fast + persistent
+- Perfect for saving small data (bookmarks)
+
+### App Screenshots
+
+- Home Screen:
+![Home Screen](screenshots/home_screen.png)
+
+- Detail Screen:
+![Detail Screen](screenshots/detail_screen.png)
