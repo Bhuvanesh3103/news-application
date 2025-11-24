@@ -48,7 +48,7 @@ Chosen for:
 ### App Screenshots
 
 - Home Screen:
-![Home Screen](screenshots/home_screen.png)
+![Home Screen](./lib/screenshots/home-screen.png)
 
 - Detail Screen:
-![Detail Screen](screenshots/detail_screen.png)
+![Detail Screen](./lib/screenshots/detail-screen.png)
